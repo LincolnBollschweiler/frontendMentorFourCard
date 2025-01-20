@@ -1,0 +1,105 @@
+@forward "andyBell";
+
+body {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --dark-blue: hsl(234, 12%, 34%);
+  --grayish-blue: hsl(229, 6%, 66%);
+  --light-gray: hsl(0, 0%, 98%);
+
+  // background: var(--light-gray);
+  background: white;
+  min-height: 100vh;
+  font-family: "Popins", sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  header {
+    text-align: center;
+    h1 {
+      line-height: 1.2;
+      color: var(--dark-blue);
+
+      &.h1 {
+        font-weight: 200;
+      }
+
+      &.h2 {
+        font-weight: 600;
+      }
+    }
+
+    p {
+      margin: 1rem;
+      padding: 0 2rem;
+      max-width: 500px;
+      color: var(--grayish-blue);
+      font-weight: 200;
+    }
+  }
+
+  main {
+    .card {
+      box-shadow: 0.5px 10px 10px var(--grayish-blue);
+      border-radius: 5px;
+      padding: 2rem 3rem;
+
+      p {
+        margin-bottom: 2rem;
+        color: var(--grayish-blue);
+        font-weight: 200;
+      }
+
+      img {
+        margin-left: auto;
+      }
+
+      &.one {
+        grid-area: card1;
+        border-top: 4px solid var(--cyan);
+      }
+
+      &.two {
+        grid-area: card2;
+        border-top: 4px solid var(--red);
+      }
+
+      &.three {
+        grid-area: card3;
+        border-top: 4px solid var(--orange);
+      }
+
+      &.four {
+        grid-area: card4;
+        border-top: 4px solid var(--blue);
+      }
+    }
+
+    max-width: 1050px;
+    margin: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(1fr, 350));
+    grid-template-rows: auto;
+    gap: 1.5rem;
+    grid-template-areas:
+      " . card2 . "
+      " card1 card2 card4 "
+      " card1 card3 card4 "
+      " . card3 . ";
+
+    @media screen and (max-width: 1200px) {
+      grid-template-areas:
+        "card1 card1 card1"
+        "card2 card2 card2"
+        "card3 card3 card3"
+        "card4 card4 card4";
+    }
+  }
+}
